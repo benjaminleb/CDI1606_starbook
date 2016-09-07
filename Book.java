@@ -10,7 +10,6 @@ public class Book {
     //p
     private String isbn;
     private Publisher publisher;
-    private Author author;
     private String title;
     private String subtitle;
     private Date date;
@@ -43,7 +42,6 @@ public class Book {
     public Book(String isbn, Publisher publisher, Author author, String title, String subtitle, Date date, String picture, String summary, String idiom, float price, Tax tax, int quantity, String pages, String print, int weight, Status status) {
         this.isbn = isbn;
         this.publisher = publisher;
-        this.author = author;
         this.title = title;
         this.subtitle = subtitle;
         this.date = date;
@@ -76,13 +74,6 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
 
     public String getTitle() {
         return title;
@@ -195,12 +186,12 @@ public class Book {
     }
 
     //m
-    public float calculatePrice() {
-        float fprice;
-        fprice = price + ((price) * (tax.getRate()) / 100);
+    public float calculateInclTax() {
+        float tPrice;
+        tPrice = price + ((price) * (tax.getRate()) / 100);
         //troncate to xx,xx
-        fprice = ((float) ((int) (fprice * 100))) / 100;
-        return fprice;
+        tPrice = ((float) ((int) (tPrice * 100))) / 100;
+        return tPrice;
     }
 
 }
